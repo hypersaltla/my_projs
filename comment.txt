@@ -1,0 +1,45 @@
+1. Basic Architecture:
+
+HTML parser (BeautifulSoup: Tag, NavigataleString, BeautifulSoup) + URL accessor (urllib resquest) + error log output
+
+2. Basic Algorithm:
+
+introduction:
+   The data on the website should be structured uniformly by HTML tags, they can be scatterd across different pages,
+   But the pages can be accessed continuously through a uniform way (click the "next" anchor, or page number). Data to
+   be extracted may cross over different level: people information-->address infor-->pictures. The scraper will extract
+   data linearly across this pages and subpages.
+
+Steps:
+--start from a seek page
+--set the range of pages need to access
+--while not the end of the whole web pages repeat following
+----send http request to the URL: urllib.request.urlopen(URL)
+----create HTML parser object (BeautifulSoup)
+----extract data based on the HTML feature
+----get the URL of next page
+
+3. Problems with url request
+
+   Page not found error or other exception may cause program stop, so use try--exception sentence to deal with error.
+   May set a time interval to reduce the load to web server.
+   
+4. Problems with HTML parsing
+
+   For BeautifulSoup
+   Data extraction from html docs mostly rely on the special feature of the HTML tag that contains data.
+   
+   We can access the tag through the attribute, or we can get a list of tags than find the right tag with data
+   
+   we may use regex to get a specific Tags or URL.
+   
+   However, HTML tag are not uniformly structured across the whole website--although the case is rare. It may cause
+   the program to stop. We need to deal with different use of tags as well as the missing data fields--check if the
+   tag is retrieved every time you want to access it. Sometimes treat this rare case as error
+
+5. Text Parsing
+
+   Using regex carefully
+
+
+
