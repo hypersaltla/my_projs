@@ -1,6 +1,7 @@
 my_projs
 ========
 Author: Ace Yan
+
 Intro: The web data extractor sample fetched all the information of artists and art collections from Getty Center website.
 
 Web data extractor guidelines:
